@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StoreProfileController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PromoController;
 
 // Halaman utama
 Route::get('/', function () {
@@ -46,3 +47,8 @@ Route::delete('/admin/kategori/{id}', [KategoriController::class, 'destroy'])->n
 // Route katalog produk
 Route::get('/katalog', [ProductController::class, 'index'])->name('katalog.index');
 Route::get('/katalog/{id}', [ProductController::class, 'byKategori'])->name('katalog.kategori');
+
+// Route promo
+Route::get('/promos', [PromoController::class, 'index']);
+Route::get('/promos/create', [PromoController::class, 'create']);
+Route::post('/promos', [PromoController::class, 'store']);
